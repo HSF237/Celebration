@@ -104,9 +104,9 @@ function FollowersWall() {
             <div className="follower-grid">
               {filtered.map((follower, index) => (
                 <article className="follower-card" key={follower.name + index} style={{animationDelay: `${Math.min(index % 24, 23) * 28}ms`}}>
-                  <div className="follower-avatar">{follower.name.trim().split(/\\s+/).slice(0,2).map(part => part[0] || "").join("").toUpperCase()}</div>
+                  <div className="follower-avatar">{follower.name.trim().split(/\s+/).slice(0,2).map(part => part[0] || "").join("").toUpperCase()}</div>
                   <span className="follower-name">{follower.name}</span>
-                  {follower.profileUrl && /^https:\/\/([a-z0-9-]+\\.)?linkedin\\.com\//i.test(follower.profileUrl) ? (
+                  {follower.profileUrl && /^https:\/\/([a-z0-9-]+\.)?linkedin\.com\//i.test(follower.profileUrl) ? (
                     <a href={follower.profileUrl} target="_blank" rel="noreferrer" className="follower-link" aria-label={`Open LinkedIn profile for ${follower.name}`}><ArrowUpRight size={15}/></a>
                   ) : <span className="follower-link muted-link" aria-hidden="true"><Sparkles size={14}/></span>}
                 </article>
